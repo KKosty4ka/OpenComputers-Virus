@@ -1,1 +1,2 @@
-# OpenComputers-Virus
+# OpenComputers/Virus
+          by KKosty4ka
