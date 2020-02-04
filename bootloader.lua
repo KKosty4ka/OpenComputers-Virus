@@ -2,6 +2,9 @@ local component = require("component")
 local computer = require("computer")
 local shell2 = require("shell")
 local eeprom = component.eeprom
+local gpu = component.gpu
+
+local resX, resY = gpu.getResolution()
 
 local function download(url)
 	local handle, data, chunk = component.proxy(component.list("internet")()).request(url), ""
@@ -26,6 +29,7 @@ local text = [[CHKDSK
 Это займёт некоторое время. Если вы думаете, что компьютер завил, то это не так!
 
 НЕ ВЫКЛЮЧАЙТЕ КОМПЮТЕР ВО ВРЕМЯ ПРОВЕРКИ, ЭТО СЛОМАЕТ ЕГО!!!]]
+gpu.fill(1, 1, resX, resY, " ")
 print(text)
 
 --Перепрошивка EEPROM
